@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-link {
+  padding: 0.2rem 1rem;
+  transition: all 200ms linear;
+  margin: auto;
+  border-radius: 10%;
+}
