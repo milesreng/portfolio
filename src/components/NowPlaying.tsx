@@ -9,17 +9,17 @@ const NowPlaying = () => {
   return (
     <>
       { nowPlaying ? (
-        <div className='w-full flex flex-row gap-2 justify-between p-2 bg-green-500 border-green-500 border-l-2 border-r-2 border-b-2 rounded-b-md'>
-          <div className='basis-full flex flex-row text-white '>
-            <div className='basis-1/4'>
+        <div className='w-full flex flex-row gap-2 justify-between p-2 bg-slate-50 dark:bg-[#272727] border-green-500 border-l-2 border-r-2 border-b-2 rounded-b-md'>
+          <div className='basis-full flex flex-row text-slate-800 dark:text-slate-50'>
+            <div className='basis-1/3 lg:basis-1/4'>
               <img src={nowPlaying.albumImageUrl} alt="" />
             </div>
-            <div className='flex flex-col my-auto pl-2 justify-between h-full'>
+            <div className='flex flex-col my-auto pl-2 justify-between h-full text-left'>
               <span></span>
               <div>
-              <span className='text-sm uppercase flex flex-row gap-2'>
+              <span className='text-sm uppercase flex flex-row gap-2 align-middle'>
                 <div>
-                  On repeat
+                  this month On repeat
                 </div>
                 <div className='music-wave my-auto'>
                   <span id='wave-1' />
@@ -27,7 +27,7 @@ const NowPlaying = () => {
                   <span id='wave-3' />
                 </div>
               </span>
-              <span className='text-sm'>
+              <span className=''>
               { nowPlaying.title } by { nowPlaying.artist }
               </span>
               </div>

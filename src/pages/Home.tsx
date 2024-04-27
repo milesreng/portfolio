@@ -15,19 +15,22 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-col md:basis-1/2 align-middle justify-center gap-4 px-4 md:px-0">
+          <div className="mx-auto flex flex-col gap-4 w-3/4 text-black dark:text-slate-50">
           <span className='text-4xl'>
             Hi, I&apos;m Miles.
           </span>
           <span className='text-xl'>
-            I&apos;m passionate about leveraging technology to increase healthcare access globally.
-          </span>
+            I&apos;m passionate about leveraging technology to increase healthcare access on a global scale.
+          </span> 
+
+          </div>
         </div>
       </div>
-      <div className='h-[100vh] w-100 bg-slate-200 dark:bg-slate-600 justify-center px-4 md:px-12'>
+      {/* <div className='h-[100vh] w-100 bg-slate-200 dark:bg-slate-600 justify-center px-4 md:px-12'>
         <div className='py-12'>
           s
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { Route,
          createRoutesFromElements, 
          RouterProvider } from 'react-router-dom'
 
-import { SpotifyContext } from './content/spotifyContext'
+import { SpotifyContext, DarkModeContext } from './content/spotifyContext'
 import { Song } from './content/data'
 
 import Layout from './pages/Layout'
@@ -26,11 +26,14 @@ const router = createBrowserRouter(
 
 function App() {
   const [nowPlaying, setNowPlaying] = useState<Song | null>(null)
+  const [darkMode, setDarkMode] = useState(false)
   
   return (
     <>
       <SpotifyContext.Provider value={{ nowPlaying, setNowPlaying }}>
-        <RouterProvider router={router} />
+        <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+          <RouterProvider router={router} />
+        </DarkModeContext.Provider>
       </SpotifyContext.Provider>
     </>
   )

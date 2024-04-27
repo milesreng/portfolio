@@ -12,7 +12,7 @@ const Code = () => {
         development.
         </span>
       </div>
-      <div className='flex flex-wrap mx-auto justify-center'>
+      <div className='flex flex-wrap mx-auto justify-center px-12'>
         { projects.map((project: Project, idx: number) => (
           <ProjectTile project={project} key={idx} />
         )) }

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { SpotifyContext } from '../content/spotifyContext'
+import { SpotifyContext, DarkModeContext } from '../content/spotifyContext'
 // import IntersectionObserver
 import { Buffer } from 'buffer'
 import querystring from 'querystring'
@@ -16,7 +16,7 @@ const Navbar = () => {
   const location = useLocation()
 
   const { nowPlaying, setNowPlaying } = useContext(SpotifyContext)
-  const [darkMode, setDarkMode] = useState(false)
+  const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const [path, setPath] = useState('')
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Navbar = () => {
   const toggleUIMode = () => { setDarkMode(!darkMode) }
 
   const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
-  const ON_REPEAT_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=1`
+  const ON_REPEAT_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=5`
   const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
   const getAccessToken = async (refresh_token: string) => {
@@ -66,9 +66,8 @@ const Navbar = () => {
 
     const topSongs = await res.json()
 
-    console.log(topSongs.items[0])
-
-    const song = topSongs.items[0]
+    const idx = Math.floor(Math.random() * 5);
+    const song = topSongs.items[idx]
 
     setNowPlaying({
       albumImageUrl: song.album.images[0].url,
@@ -79,11 +78,11 @@ const Navbar = () => {
   }
 
   return (
-    <div  id='app' className={`w-full bg-slate-50 min-h-screen font-content ${darkMode ? 'dark' : ''} dark:bg-slate-800 dark:text-slate-50`}>
+    <div  id='app' className={`w-full min-h-screen font-content ${darkMode ? 'dark bg-dark' : 'bg-default'} dark:text-slate-50`}>
       <div className='w-full flex flex-row justify-between fixed'>
         <div className=' w-1/8 sm:w-1/6 md:w-1/4 xl:w-1/3'>
         </div>
-        <div className='flex flex-row mx-auto w-3/4 sm:w-2/3 md:w-1/2 xl:w-1/3 justify-between my-2 py-2 dark:bg-slate-800 bg-slate-50 bg-opacity-80 dark:bg-opacity-80 rounded-md'>
+        <div className='flex flex-row mx-auto w-3/4 sm:w-2/3 md:w-1/2 xl:w-1/3 justify-between my-2 py-2 dark:bg-[#272727] bg-slate-50 bg-opacity-80 dark:bg-opacity-80 rounded-md'>
           <Link to='/' className={`nav-link ${path === '' ? 'bg-slate-200 dark:bg-slate-600' : ''}`}>About</Link>
           <Link to='/work'  className={`nav-link ${path === 'work' ? 'bg-slate-200 dark:bg-slate-600' : ''}`}>Work</Link>
           <Link to='/code' className={`nav-link ${path === 'code' ? 'bg-slate-200 dark:bg-slate-600' : ''}`}>Code</Link>
@@ -96,6 +95,7 @@ const Navbar = () => {
       <div className='min-h-screen pt-16'>
         <Outlet />
       </div>
+      
     </div>
   )
 }

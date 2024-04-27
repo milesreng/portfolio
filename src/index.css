@@ -19,15 +19,8 @@ input, textarea {
   justify-content: space-between;
   width: 13px;
   height: 13px;
+}
 
-}
-.music-wave span {
-    width: 3px;
-    height: 100%;
-    background-color: orange;
-    border-radius: 3px;
-    content: '';
-}
 
 @keyframes bounce {
   10% {
@@ -54,7 +47,7 @@ input, textarea {
 .music-wave span {
   width: 3px;
   height: 100%;
-  background-color: white;        /* tailwind green */
+  background-color: #22c55e;        /* tailwind green */
   border-radius: 3px;
   transform-origin: bottom;
   animation: bounce 2.2s ease infinite alternate;
@@ -67,4 +60,37 @@ input, textarea {
 
 .music-wave #wave-3 {
   animation-delay: -3.7s; /* Start mid-way of return of animation */
+}
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+.bg-default {
+  background: linear-gradient(-45deg, #E6EBE0, #aac8d7, #aecfb7);
+  background-size: 400% 600%;
+  animation: gradient 4s ease infinite;
+}
+
+.bg-dark {
+  background: linear-gradient(-45deg, #3c4b53, #324837,  #303f47);
+  background-size: 400% 600%;
+  animation: gradient 4s ease infinite;
+}
+
+.bg-dark-nav {
+  background-color: #272727 !important;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

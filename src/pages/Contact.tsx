@@ -44,21 +44,21 @@ const Contact = () => {
             Thanks! Your message was successfully sent.
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-2/3 mx-auto bg-slate-100 dark:bg-slate-700 px-24 py-12'>
+          <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-2/3 mx-auto bg-[#e2e9e4] dark:bg-[#303f47] bg-opacity-60 px-24 py-12'>
             <input 
-              className='dark:bg-slate-600'
+              className='dark:bg-[#40525b]'
               value={name}
               onChange={(e) => { setName(e.target.value) }}
               placeholder='Your name'
               type="text" />
             <input 
-              className='dark:bg-slate-600'
+              className='dark:bg-[#40525b]'
               value={email}
               placeholder='name@example.com'
               onChange={(e) => { setEmail(e.target.value) }}
               type="text" />
             <textarea 
-              className='dark:bg-slate-600'
+              className='dark:bg-[#40525b]'
               value={message}
               placeholder='Write a message here...'
               onChange={(e) => { setMessage(e.target.value) }}
@@ -66,7 +66,7 @@ const Contact = () => {
             <button 
               type='submit' 
               disabled={loading} 
-              className='my-2 bg-slate-300 dark:bg-slate-500 w-fit mx-auto px-4 py-1 rounded-sm'>Submit</button>
+              className='my-2 bg-[#bcd7c3] hover:bg-[#aecfb7] dark:bg-[#40525b] hover:dark:bg-[#4a5c63] w-fit mx-auto px-4 py-1 rounded-sm'>Submit</button>
           </form>
         )}
       </div>
